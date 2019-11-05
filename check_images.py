@@ -149,14 +149,14 @@ def get_pet_labels():
                      Labels (as value)  
     """
     
-    # 获取pet_images目录下的所有文件名
+    
     pet_images_list = listdir('./pet_images')
     petlabels = {}
 
     for idx in range(len(pet_images_list)):
                 
        
-        pet_images_name = pet_images_list[idx]# lower was here
+        pet_images_name = pet_images_list[idx].lower()
         
         word_list = pet_images_name.split('_')
         
@@ -165,10 +165,10 @@ def get_pet_labels():
                 if word.isalpha():
                         petlabel += word + " "
         
-        # 去除两边的空格
+        
         petlabel = petlabel.strip()
 
-        # 添加进dict
+        
         if pet_images_name not in petlabels:
                 petlabels[pet_images_name] = petlabel
         else:
